@@ -124,7 +124,7 @@
       cpfVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      codigoVar == "" 
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -132,7 +132,18 @@
 
       finalizarAguardar();
       return false;
-    } else {
+    } else if (
+      // exercicio 3, validações
+      nomeVar.length <= 1 || emailVar.includes('@') == false || emailVar.includes('.') == false || senhaVar <= 6 || confirmacaoSenhaVar != senhaVar || cpfVar.length <= 11
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Um dos campos está invalido)";
+
+      finalizarAguardar();
+      return false;
+    }
+    else {
       setInterval(sumirMensagem, 5000);
     }
 
@@ -159,8 +170,8 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        emailServer: emailVar,
         cpfServer: cpfVar,
+        emailServer: emailVar,
         senhaServer: senhaVar,
         idEmpresaVincularServer: idEmpresaVincular
       }),
