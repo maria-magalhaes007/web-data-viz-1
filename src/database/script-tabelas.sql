@@ -59,4 +59,3 @@ insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar'
 insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
 
 select * from usuario;
-delete from usuario where id IN(1, 2, 3);
